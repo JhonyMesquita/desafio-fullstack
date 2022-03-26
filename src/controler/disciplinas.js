@@ -6,32 +6,55 @@ export async function createTable() {
     })
 }
 
-export async function insertCurso(curso) {
+export async function selectCursos(req, res) {
+    openDb().then( db=>{
+       db.all('SELECT * FROM disciplinas').then(cursos=>res.json(cursos))
+       
+   });
+   res.json({
+       "statusCode": 200
+    })
+
+}
+
+export async function selectId(req, res) {
+    let id = req.body.id;
+    openDb().then( db=>{
+       db.get('SELECT * FROM disciplinas WHERE id=?', [id]).then(cursoId=>res.json(cursoId))
+   });
+   res.json({
+    "statusCode": 200
+    })
+}
+
+export async function insertCurso(req, res) {
+    let curso = req.body;
     openDb().then(db=>{
        db.run('INSERT INTO disciplinas (disciplina, professor, sala, hora_i, hora_f) VALUES (?, ?, ?, ?, ?)', [curso.disciplina, curso.professor, curso.sala, curso.hora_i, curso.hora_f]);
    });
+   res.json({
+    "statusCode": 200
+    })
 }
 
-export async function updateCurso(curso) {
+export async function updateCurso(req, res) {
+    let curso = req.body;
     openDb().then(db=>{
        db.run('UPDATE disciplinas SET disciplina=?, professor=?, sala=?, hora_i=?, hora_f=? WHERE id=?', [curso.disciplina, curso.professor, curso.sala, curso.hora_i, curso.hora_f]);
    });
+   res.json({
+    "statusCode": 200
+    })
 }
 
-export async function selectCursos() {
-    return openDb().then( db=>{
-       return db.all('SELECT * FROM disciplinas').then(res=>res)
-   });
-}
 
-export async function selectId(id) {
-    return openDb().then( db=>{
-       return db.all('SELECT * FROM disciplinas WHERE id=?', [id]).then(res=>res)
-   });
-}
 
-export async function deleteCurso(id) {
+export async function deleteCurso(req, res) {
+    let id = req.body.id;
     return openDb().then( db=>{
-       return db.all('DELETE * FROM disciplinas WHERE id=?', [id]).then(res=>res)
+       return db.all('DELETE * FROM disciplinas WHERE id=?', [id]).then(deletCurso=>res.json(deletCurso))
    });
+   res.json({
+    "statusCode": 200
+    })
 }

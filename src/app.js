@@ -1,23 +1,27 @@
-// #IMPORT - sqlite trabalha via module 
-import { openDb } from './configDB.js';
-import { createTable, insertCurso, updateCurso, selectCursos, selectId, deleteCurso } from './controler/disciplinas.js';
 import express from 'express';
-
-
 const app = express();
+app.use(express.json());
+
+/* // #IMPORT - sqlite trabalha via module 
+import { openDb } from './configDB.js';
+import { createTable, insertCurso, updateCurso, selectCursos, selectId, deleteCurso } from './controler/disciplinas.js'; */
+
+// Routes import
+import router from './routes.js';
+app.use(router);
+
+app.listen(3000, function(){
+    console.log('Api rodando')
+});
 
 /* criar database sqlite. DONE!
 openDb(); */
 /* criar tabela. DONE!
 createTable(); */
 
-app.listen(3000, function(){
-    console.log('Api rodando')
-});
-
-app.use(express.json());
 
 
+/* 
 // VERBOS
 
 // #GET - Todo o banco
@@ -62,3 +66,4 @@ app.get('/curso', async function(req, res){
     res.json(curso);
 
 })
+ */
