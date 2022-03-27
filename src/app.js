@@ -2,10 +2,6 @@ import express from 'express';
 const app = express();
 app.use(express.json());
 
-/* // #IMPORT - sqlite trabalha via module 
-import { openDb } from './configDB.js';
-import { createTable, insertCurso, updateCurso, selectCursos, selectId, deleteCurso } from './controler/disciplinas.js'; */
-
 // Routes import
 import router from './routes.js';
 app.use(router);
@@ -14,10 +10,22 @@ app.listen(3000, function(){
     console.log('Api rodando')
 });
 
-/* criar database sqlite. DONE!
-openDb(); */
-/* criar tabela. DONE!
-createTable(); */
+
+
+/* // #IMPORT - sqlite trabalha com type:module 
+
+ */
+/* import { openDb } from './configDB.js';
+import { createTableAuth } from './controler/auth.js'
+/* import { createTable, insertCurso, updateCurso, selectCursos, selectId, deleteCurso } from './controler/disciplinas.js'; */
+
+
+
+
+/* //criar database sqlite. DONE!
+openDb(); 
+//criar tabela. DONE!
+createTableAuth(); */
 
 
 

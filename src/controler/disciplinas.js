@@ -11,9 +11,6 @@ export async function selectCursos(req, res) {
        db.all('SELECT * FROM disciplinas').then(cursos=>res.json(cursos))
        
    });
-   res.json({
-       "statusCode": 200
-    })
 
 }
 
@@ -22,9 +19,7 @@ export async function selectId(req, res) {
     openDb().then( db=>{
        db.get('SELECT * FROM disciplinas WHERE id=?', [id]).then(cursoId=>res.json(cursoId))
    });
-   res.json({
-    "statusCode": 200
-    })
+    
 }
 
 export async function insertCurso(req, res) {
@@ -40,7 +35,7 @@ export async function insertCurso(req, res) {
 export async function updateCurso(req, res) {
     let curso = req.body;
     openDb().then(db=>{
-       db.run('UPDATE disciplinas SET disciplina=?, professor=?, sala=?, hora_i=?, hora_f=? WHERE id=?', [curso.disciplina, curso.professor, curso.sala, curso.hora_i, curso.hora_f]);
+       db.run('UPDATE disciplinas SET disciplina=?, professor=?, sala=?, hora_i=?, hora_f=? WHERE id=?', [curso.disciplina, curso.professor, curso.sala, curso.hora_i, curso.hora_f, curso.id]);
    });
    res.json({
     "statusCode": 200
