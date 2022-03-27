@@ -18,6 +18,6 @@ router.delete('/curso', deleteCurso);
 
 // Rota de auth 
 router.get('/auth', selectAuth);
-router.post('/auth', insertAuth);
+router.post('/authInsert', insertAuth);
 
 export default router;
