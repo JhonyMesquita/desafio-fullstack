@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { createTable, insertCurso, updateCurso, selectCursos, selectId, deleteCurso } from './controler/disciplinas.js';
-import { selectAuth, insertAuth } from './controler/auth.js'
+import { selectUser, insertUser, selectAll } from './controler/user.js'
 
 const router = Router();
 
@@ -17,7 +17,8 @@ router.delete('/curso', deleteCurso);
 
 
 // Rota de auth 
-router.get('/auth', selectAuth);
-router.post('/authInsert', insertAuth);
+router.get('/user', selectUser);
+router.post('/insertUser', insertUser);
+router.get('/all', selectAll);
 
 export default router;

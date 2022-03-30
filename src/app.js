@@ -5,12 +5,17 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.use(session({
+    secret: "desafioCelsoVagaEMinha",
+    resave: true,
+    saveUninitialized: true
+}));
 
 // Routes import
 import router from './routes.js';
 app.use(router);
 
-app.listen(3000, function(){
+app.listen(3000, function () {
     console.log('Api rodando')
 });
 

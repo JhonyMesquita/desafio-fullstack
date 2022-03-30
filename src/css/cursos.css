@@ -1,11 +1,24 @@
-body, ul, li, p {
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-    font-size: 1.2rem;
-    font-family: Arial;
-}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+    color: #323232;
+    border: none;
+  }
 
+ body
+ {
+   background:
+     linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+     linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+     linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+     linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+     linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+     linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+   background-color: #131313;
+   background-size: 20px 20px;
+ }
 
 h1 {
     margin-left: auto;
@@ -17,10 +30,43 @@ li {
 }
 
 header {
-    background-color: black;
+    background-color: white;
     display: flex;
-    color: white;
-    margin-bottom: 50px;
+    color: black;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+button {
+    align-self: right;
+    border-radius: 5px;
+    display:flex;
+    align-items: center;
+    border: none;
+    height: 20px;
+    width: 20%;
+    cursor: pointer;
+    background-color: #a3bfd3;
+    color: #FFF;
+    font-weight: bold;
+    margin-top: 1px; margin-left: 175px; margin-right: 5px;
+  }
+
+.p-hora {
+    display: flex;
+    margin-top: 1px; margin-left: 110px; margin-right: 5px;
+}
+.p-prof{
+    text-align: left;
+    display: flex;
+    margin-top: 5px; margin-left: 1px; margin-right: 5px; margin-bottom: 10px;
+}
+.nav_link {
+    display: flex;
+    color: black;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 10px;
 }
 
 
@@ -28,16 +74,24 @@ header {
 
 .flex {
     display: flex;
+    color: black;
     flex-wrap: wrap;
     max-width: 100%;
-    margin: 0 auto;
+    margin: 10px;
    
 }
 
 .flex > div {
-    margin: 10px;
-    flex: 1 1 300px;
+    margin-left: 10px;
+    margin-right: 10px;
+    flex: 1 1 200px;
     border: 1px solid;
-    padding: 10px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: white;
 }
+
+
+
 
