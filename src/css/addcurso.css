@@ -19,10 +19,70 @@
    background-color: #131313;
    background-size: 20px 20px;
  }
-
-  header {
-    background-color: black;
-    display: flex;
-    color: white;
-    margin-bottom: 50px;
+ 
+ h1 {
+  margin-left: auto;
+  margin-right: auto;
 }
+
+header {
+  background-color: white;
+  display: flex;
+  color: black;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  
+}
+
+.box {
+  flex: 1 1 100%;
+  position: relative;
+}
+
+#cadastro-container {
+  background-color: #FFF;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 30px;
+  margin-top: 10vh;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.btn-salvar {
+  border-radius: 20px;
+  border: none;
+  height: 40px;
+  width: 40%;
+  cursor: pointer;
+  background-color: #08558B;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 20px
+}
+
+button:hover {
+  background-color: #3213bd;
+  transition: .6s;
+}
+
+.class-disc{
+  display: relative;
+  align-items: center;
+  padding-bottom: 5px;
+  width: 210px;
+  text-align: left;
+}
+
+.nav_link {
+    display: flex;
+    color: black;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 10px;
+}
+
+
+

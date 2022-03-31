@@ -1,15 +1,15 @@
 import express from 'express';
 import cors from 'cors';
-import session from 'express-session';
+import { openDb } from './configDB.js';
+import { createTableAuth } from './controler/user.js'
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use(session({
-    secret: "desafioCelsoVagaEMinha",
-    resave: true,
-    saveUninitialized: true
-}));
+/* //criar database sqlite. 
+openDb(); 
+//criar nova tabela/ tem que mudar o nome controler 
+createTableAuth(); */
 
 // Routes import
 import router from './routes.js';
@@ -31,10 +31,7 @@ import { createTableAuth } from './controler/auth.js'
 
 
 
-/* //criar database sqlite. DONE!
-openDb(); 
-//criar tabela. DONE!
-createTableAuth(); */
+
 
 
 

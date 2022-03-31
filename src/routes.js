@@ -11,7 +11,7 @@ router.get('/', (req, res)=>{
 // Rota Cursos bd
 router.get('/curso', selectId);
 router.get('/cursos', selectCursos);
-router.post('/curso', insertCurso);
+router.post('/cadastro/curso', insertCurso);
 router.put('/curso', updateCurso);
 router.delete('/curso', deleteCurso);
 
