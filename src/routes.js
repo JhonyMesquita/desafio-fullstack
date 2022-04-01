@@ -13,7 +13,7 @@ router.get('/curso', selectId);
 router.get('/cursos', selectCursos);
 router.post('/cadastro/curso', insertCurso);
 router.put('/curso', updateCurso);
-router.delete('/curso', deleteCurso);
+router.delete('/curso/delete', deleteCurso);
 
 
 // Rota de auth 
