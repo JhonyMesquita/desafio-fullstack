@@ -37,7 +37,7 @@ header {
     border-radius: 10px;
 }
 
-button {
+#button {
     align-self: right;
     border-radius: 5px;
     display:flex;
@@ -50,6 +50,7 @@ button {
     color: #FFF;
     font-weight: bold;
     margin-top: 1px; margin-left: 175px; margin-right: 5px;
+    
   }
 
 .p-hora {
