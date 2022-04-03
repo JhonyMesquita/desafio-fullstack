@@ -51,6 +51,7 @@ function salvarCad() {
         itemHf
     )
         console.log(curso)
+        
 
     fetch("http://localhost:3000/cadastro/curso", {
         method: "POST",

@@ -15,11 +15,10 @@ export async function selectCursos(req, res) {
 }
 
 export async function selectId(req, res) {
-    let id = req.body.id;
-    openDb().then( db=>{
-       db.get('SELECT * FROM disciplinas WHERE id=?', [id]).then(cursoId=>res.json(cursoId))
-   });
-    
+    let disci = req.body.disciplina;
+        openDb().then(db=> {
+            db.get("SELECT * FROM disciplinas WHERE disciplina=?", [disci]).then(curso=> res.json(curso));
+        })
 }
 
 export async function insertCurso(req, res) {
@@ -35,7 +34,7 @@ export async function insertCurso(req, res) {
 export async function updateCurso(req, res) {
     let curso = req.body;
     openDb().then(db=>{
-       db.run('UPDATE disciplinas SET disciplina=?, professor=?, sala=?, hora_i=?, hora_f=? WHERE id=?', [curso.disciplina, curso.professor, curso.sala, curso.hora_i, curso.hora_f, curso.id]);
+       db.run('UPDATE disciplinas SET professor=?, sala=?, hora_i=?, hora_f=? WHERE disciplina=?', [curso.professor, curso.sala, curso.hora_i, curso.hora_f, curso.disciplina]);
    });
    res.json({
     "statusCode": 200
@@ -45,9 +44,9 @@ export async function updateCurso(req, res) {
 
 
 export async function deleteCurso(req, res) {
-    let id = req.body.id;
+    let id = req.params.id;
     return openDb().then( db=>{
-       return db.run('DELETE * FROM disciplinas WHERE id=?', [id]).then(deletCurso=>res.json(deletCurso))
+       return db.run('DELETE FROM disciplinas WHERE id=?', [id]).then(deletCurso=>res.json(deletCurso))
    });
    res.json({
     "statusCode": 200

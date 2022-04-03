@@ -12,8 +12,8 @@ router.get('/', (req, res)=>{
 router.get('/curso', selectId);
 router.get('/cursos', selectCursos);
 router.post('/cadastro/curso', insertCurso);
-router.put('/curso', updateCurso);
-router.delete('/curso/delete', deleteCurso);
+router.patch('/curso/update', updateCurso);
+router.delete('/cursos/:id', deleteCurso);
 
 
 // Rota de auth 

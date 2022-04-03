@@ -92,12 +92,12 @@ async function getLogin() {
             console.log('deu bom')
         }else {
             window.location.href = "index.html"
-            console.log('Se fudeu')
+            console.log('deu ruim')
             alert('Login inválido')
         }
 
     } catch (error) {
-        console.log('banana')
+        console.error(error)
     }
 
 }

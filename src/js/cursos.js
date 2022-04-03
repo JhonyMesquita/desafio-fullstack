@@ -1,70 +1,45 @@
-async function getContent() {
+const postList = document.querySelector('.post-list');
+let output = '';
 
-    try {
-        const cursos = await fetch('http://localhost:3000/cursos')
-        const data = await cursos.json()
+const renderCursos = (cursos) => {
+    cursos.forEach(curso => {
+        output += `
+        <div class="card" style="width: 18rem;">
+        <div class="card-body" data-id=${curso.id}>
+            <a href="#" class="card-link" id="delete-curso">Delete</a>
+          <h5 class="card-title">${curso.disciplina}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${curso.professor}</h6>
+          <p class="card-text">${curso.sala}</p>
+          <p class="card-text"><a>${curso.hora_i}</a><a>${curso.hora_f}</a></p>
+          
+          
+        </div>
+        </div>`
+    });
+    postList.innerHTML = output;
+}
 
-        show(data)
+const url = 'http://localhost:3000/cursos';
 
-    } catch (error) {
-        console.error(error)
+//Get - Read the cursos
+// Method: GET 
+fetch(url)
+    .then(res => res.json())
+    .then(data => renderCursos(data))
+
+postList.addEventListener('click', (e) => {
+    e.preventDefault();
+    let delButtonIsPressed = e.target.id == 'delete-curso';
+
+    console.log(e.target.parentElement.dataset.id);
+    let id = e.target.parentElement.dataset.id;
+    // Delete - remove o curso existente
+    // method: DELETE 
+    if (delButtonIsPressed) {
+        fetch(`${url}/${id}`, {
+            method: 'DELETE',
+        })
+            .then(res => res.json())
+            .then(() => location.reload())
     }
-
-}
-
-getContent()
-
-function show(cursos) {
-    let output = ''
-    for (let curso of cursos) {
-        output += `<div> 
-                        <ul id="delete">
-                            <li><input type="submit" value="Delete" id="button" onclick="deleteCurso()"</li>
-                            
-                            <li class="id-del">${curso.id}</li>
-
-                            <li>${curso.disciplina}</li>
-                            
-                            <li class="p-prof">${curso.professor}</li>
-                            
-                            <li class="p-sala">Sala ${curso.sala}</li>
-                            
-                            <li class="p-hora">${curso.hora_i} às ${curso.hora_f}</li>
-                            </ul>
-                    </div>`
-    }
-    document.querySelector('main').innerHTML = output;
-}
-
-// DELETE
-async function deleteCurso(){
-  const liDel = await document.getElementsByClassName('id-del');
-  const idDel = liDel.body;
-  console.log(idDel)
-
-  function DeletId(id){this.id = id}
-  
-  let deletId = new DeletId(idDel)
-
-
-  console.log(deletId)
-
-}
-
-
-
-/* async function deletCurso(){
-
-    fetch("http://localhost:3000/curso/delete", { 
-        method: "DELETE", 
-        headers: {
-            "Content-Type": "application/json", 
-        },
-        body: JSON.stringify(delCurso), 
-    })
-        .then((response))
-
-
-
-} */
-
+})
