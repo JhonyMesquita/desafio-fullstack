@@ -5,15 +5,15 @@ Eu preciso realizar a gestão dos cursos oferecidos pela Instituição, com seus
 Para que o setor de Marketing possa vender os cursos online.
 
 ## API
-API consumindo banco de dados. FrontEnd consumindo API nas páginas index.html e cursos.html
+API consumindo banco de dados. FrontEnd consumindo API nas páginas index.html, cursos.html, cadastro.html.
 
 ### Instruções
-Salve os arquivos numa pasta e através do seu terminal na pasta raiz dê o camando " npm i " para instalar todas as dependencias necessárias contidas no package json.
+Salve os arquivos numa pasta e através do seu terminal na pasta raiz dê o camando " npm i " para instalar todas as dependencias necessárias.
 
-Após bastar dar um comando no seu terminal " npm run dev", abra o src/pages/index.html e faça login.
+Após bastar dar um comando no seu terminal " npm run dev", abra o index.html na pasta PAGE e faça login.
 
 #### LOGIN
-email: coodernador@liga.com
+email: coordernador@liga.com
 password: 12345678
 
 #### Ferramentas e documentação utilizadas
@@ -22,7 +22,4 @@ password: 12345678
 -- EXPRESS
 -- SQLite
 -- NODEMON
-
-
-# 
 

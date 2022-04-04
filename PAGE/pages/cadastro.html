@@ -32,11 +32,11 @@
     <div id="cadastro-container">
       <form action=' ' method='' class="box">
         <div id="div-flex">
-          <input type="name" name="disciplina" placeholder="  Disciplina" id="dis" required>
+          <input type="name" name="disciplina" placeholder="  Disciplina" id="dis" onchange="toggleButtonErrors()">
         </div>
         <div>
 
-          <select class="selectpicker" name='select' id="post-prof" multiple placeholder="Professor" required>
+          <select class="selectpicker" name='select' id="post-prof" multiple placeholder="Professor" onchange="toggleButtonErrors()" >
             <option value="" disabled selected>Professores</option>
             <option value="1">Prof. Álvares de Azevedo</option>
             <option value="2">Prof. Mario de Andrade</option>
@@ -47,7 +47,7 @@
 
 
           <div>
-            <select class="selectpicker" multiple id="post-sala" data-mdb-placeholder="Sala" required>
+            <select class="selectpicker" multiple id="post-sala" data-mdb-placeholder="Sala" onchange="toggleButtonErrors()">
               <option value="" disabled selected>Sala</option>
               <option value="1">301</option>
               <option value="2">302</option>
@@ -58,12 +58,12 @@
           </div>
 
           <div id="horarios">
-            <input type="text" name="hora_i" id="horai" placeholder=" Início" required>
-            <input type="text" name="hora_f" id="horaf" placeholder=" Fim" required>
+            <input type="text" name="hora_i" id="horai" placeholder=" Início" onchange="toggleButtonErrors()">
+            <input type="text" name="hora_f" id="horaf" placeholder=" Fim" onchange="toggleButtonErrors()">
           </div>
 
-          <button type="submit" id="button-save">Salvar</button>
-          <button type="submit" id="button-edit">Editar</button>
+          <button type="submit" id="button-save" disabled="true">Salvar</button>
+          <button type="submit" id="button-edit" disabled="true">Editar</button>
       </form>
       
     </div>

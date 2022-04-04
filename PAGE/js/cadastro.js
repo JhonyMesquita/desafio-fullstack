@@ -2,7 +2,6 @@ const addCursoForm = document.querySelector('.box');
 const url = "http://localhost:3000/cursos";
 
 
-
 function formCurso() {
     let selectDisc = document.getElementById("dis");
     let itemDisc = selectDisc.value;
@@ -56,7 +55,7 @@ function formCurso() {
     return curso;
 }
 
-
+// Buttons
 
 addCursoForm.addEventListener('click', (e) => {
     e.preventDefault()
@@ -95,4 +94,78 @@ addCursoForm.addEventListener('click', (e) => {
             })
     }
 })
+
+
+// Validação de campos
+
+function toggleButtonErrors() {
+    const discValid = isDiscIsValid();
+    const profValid = isProfIsValid();
+    const salaValid = isSalaIsValid();
+    const horaiValid = isHoraiIsValid();
+    const horafValid = isHorafIsValid();
+    document.getElementById('button-save').disabled = !discValid || !profValid || !salaValid || !horaiValid || !horafValid;
+    document.getElementById('button-edit').disabled = !discValid || !profValid || !salaValid || !horaiValid || !horafValid;
+}
+
+function isDiscIsValid() {
+    const selectDisc = document.getElementById("dis").value;
+
+    if (!selectDisc) {
+        return false;
+    }
+    return true;
+
+}
+
+function isProfIsValid() {
+    var selectProf = document.getElementById("post-prof");
+    var itemsProf = [];
+    for (let i = 1; i < selectProf.options.length; i++) {
+        if (selectProf.options[i].selected) {
+            itemsProf.push(selectProf.options[i].text);
+        }
+    }
+
+    if (itemsProf.length != 0) {
+        return true;
+    }
+    return false;
+}
+
+function isSalaIsValid() {
+    var selectSala = document.getElementById("post-sala");
+    var itensSala = [];
+    for (let i = 1; i < selectSala.options.length; i++) {
+        if (selectSala.options[i].selected) {
+            itensSala.push(selectSala.options[i].text);
+        }
+    }
+    if (itensSala.length != 0) {
+        return true;
+    }
+    return false;
+}
+
+
+function isHoraiIsValid() {
+    let selectHi = document.getElementById('horai').value;
+
+    if (!selectHi) {
+        return false;
+    }
+    return true;
+
+}
+
+function isHorafIsValid() {
+    let selectHf = document.getElementById('horaf').value;
+
+    if (!selectHf) {
+        return false;
+    }
+    return true;
+
+}
+
 
