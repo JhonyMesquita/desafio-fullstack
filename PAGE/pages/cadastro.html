@@ -8,9 +8,10 @@
 
   <title>Cadastro de Cursos</title>
 
-    <link rel="stylesheet"
+  <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="../css/cadastro.css">
 
@@ -19,21 +20,24 @@
 
 <body>
   <header id="header" class="header">
-    <h1>Cadastro</h1>
+    <a href="cursos.html" class="nav_link"><span class="material-icons">
+        navigate_before
+      </span></a>
+    <h1 id="h-cadastro">Cadastro</h1>
     <nav class="nav">
-      <div><a href="cursos.html" class="nav_link">Voltar</a></div>
+
     </nav>
   </header>
   <main>
     <div id="cadastro-container">
       <form action=' ' method='' class="box">
         <div id="div-flex">
-          <input type="name" name="disciplina" placeholder="  Disciplina" id="dis">
+          <input type="name" name="disciplina" placeholder="  Disciplina" id="dis" required>
         </div>
         <div>
 
-          <select class="selectpicker" name='select'id="post-prof" multiple>
-            <!-- <option value="" disabled selected>Professores</option> -->
+          <select class="selectpicker" name='select' id="post-prof" multiple placeholder="Professor" required>
+            <option value="" disabled selected>Professores</option>
             <option value="1">Prof. Álvares de Azevedo</option>
             <option value="2">Prof. Mario de Andrade</option>
             <option value="3">Prof. Ruy Barbosa</option>
@@ -43,8 +47,8 @@
 
 
           <div>
-            <select class="selectpicker" multiple id="post-sala">
-              <!-- <option value="" disabled selected>Sala</option> -->
+            <select class="selectpicker" multiple id="post-sala" data-mdb-placeholder="Sala" required>
+              <option value="" disabled selected>Sala</option>
               <option value="1">301</option>
               <option value="2">302</option>
               <option value="3">303</option>
@@ -53,12 +57,15 @@
             </select>
           </div>
 
-          <div><input type="time" name="hora_i" id="horai"><label>Hora Início</label></div>
-          <div><input type="time" name="hora_f" id="horaf"><label>Hora Final</label></div>
+          <div id="horarios">
+            <input type="text" name="hora_i" id="horai" placeholder=" Início" required>
+            <input type="text" name="hora_f" id="horaf" placeholder=" Fim" required>
+          </div>
 
-          <button type="button" id="button" onclick="salvarCad()">Acessar</button>
+          <button type="submit" id="button-save">Salvar</button>
+          <button type="submit" id="button-edit">Editar</button>
       </form>
-      <!-- <input type="submit" value="Salvar" class="btn-salvar" onclick="salvarCad()"> -->
+      
     </div>
 
   </main>

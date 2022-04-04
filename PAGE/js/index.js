@@ -61,10 +61,6 @@ function isPasswordValid() {
 }
 
 
-
-
-
-
 // AUTENTICAÇÃO SIMPLES
 
 async function getLogin() {

@@ -18,7 +18,8 @@ export async function selectId(req, res) {
     let disci = req.body.disciplina;
         openDb().then(db=> {
             db.get("SELECT * FROM disciplinas WHERE disciplina=?", [disci]).then(curso=> res.json(curso));
-        })
+        });
+        
 }
 
 export async function insertCurso(req, res) {
@@ -46,7 +47,7 @@ export async function updateCurso(req, res) {
 export async function deleteCurso(req, res) {
     let id = req.params.id;
     return openDb().then( db=>{
-       return db.run('DELETE FROM disciplinas WHERE id=?', [id]).then(deletCurso=>res.json(deletCurso))
+        return db.run('DELETE FROM disciplinas WHERE id=?', [id]).then(deletCurso=>res.json(deletCurso))
    });
    res.json({
     "statusCode": 200

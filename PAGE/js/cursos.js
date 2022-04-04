@@ -6,11 +6,17 @@ const renderCursos = (cursos) => {
         output += `
         <div class="card" style="width: 18rem;">
         <div class="card-body" data-id=${curso.id}>
-            <a href="#" class="card-link" id="delete-curso">Delete</a>
-          <h5 class="card-title">${curso.disciplina}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">${curso.professor}</h6>
-          <p class="card-text">${curso.sala}</p>
-          <p class="card-text"><a>${curso.hora_i}</a><a>${curso.hora_f}</a></p>
+        <span class="material-icons" href="#" class="card-link" id="delete-curso">
+        delete
+        </span>
+          <h4 class="card-title" id="disciplina">${curso.disciplina}</h4>
+          <h6 class="card-subtitle mb-2 text-muted" id="prof">${curso.professor}</h6>
+          <span class="card-text" id="sala">Sala ${curso.sala}</span>
+          <br>
+          <div id="horarios">
+          <span class="card-link" id="horai">${curso.hora_i} às</span>
+          <span id="horaf">  ${curso.hora_f}</span>
+          </div>
           
           
         </div>
@@ -41,5 +47,6 @@ postList.addEventListener('click', (e) => {
         })
             .then(res => res.json())
             .then(() => location.reload())
+           
     }
 })

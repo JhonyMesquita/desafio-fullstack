@@ -9,10 +9,10 @@ router.get('/', (req, res)=>{
 })
 
 // Rota Cursos bd
-router.get('/curso', selectId);
+router.get('/cursos/:disciplina', selectId);
 router.get('/cursos', selectCursos);
-router.post('/cadastro/curso', insertCurso);
-router.patch('/curso/update', updateCurso);
+router.post('/cursos', insertCurso);
+router.patch('/cursos/:disciplina', updateCurso);
 router.delete('/cursos/:id', deleteCurso);
 
 
