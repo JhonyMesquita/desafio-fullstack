@@ -8,7 +8,7 @@ app.use(cors());
 
 /* //criar database sqlite. 
 openDb(); 
-//criar nova tabela/ tem que mudar o nome controler 
+//criar nova tabela/ tem que mudar o nome no controler 
 createTableAuth(); */
 
 // Routes import
@@ -21,63 +21,9 @@ app.listen(3000, function () {
 
 
 
-/* // #IMPORT - sqlite trabalha com type:module 
-
- */
-/* import { openDb } from './configDB.js';
-import { createTableAuth } from './controler/auth.js'
-/* import { createTable, insertCurso, updateCurso, selectCursos, selectId, deleteCurso } from './controler/disciplinas.js'; */
 
 
 
 
 
 
-
-
-/* 
-// VERBOS
-
-// #GET - Todo o banco
-app.get('/cursos', async function(req, res){
-    let cursos = await selectCursos();
-    res.json(cursos);
-});
-
-// #GET - por ID
-app.get('/curso', async function(req, res){
-    let curso = await selectId(req.body.id);
-    res.json(curso);
-});
-
-// #POST - Inserir dados completos na tabela.
-app.post('/curso', function(req, res) {
-    insertCurso(req.body);
-    res.json({
-        "statusCOde": 200
-    });
-});
-
-// #PUT - update completo 
-app.put('/curso', function(req, res) {
-    if(req.body && !req.body.id) {
-        res.json({
-            "statusCode": 400,
-            "msg": "Você precisa informar um id"
-        })
-    } else {
-        updateCurso(req.body);
-        res.json({
-        "statusCOde": 200
-        });
-    }
-     
-});
-
-//#DELETE - Deletar curso
-app.get('/curso', async function(req, res){
-    let curso = await deleteCurso(req.body.id);
-    res.json(curso);
-
-})
- */
