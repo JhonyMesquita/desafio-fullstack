@@ -15,7 +15,7 @@ createTableAuth(); */
 import router from './routes.js';
 app.use(router);
 
-app.listen(4000, function () {
+app.listen(3000, function () {
     console.log('Api rodando')
 });
 
